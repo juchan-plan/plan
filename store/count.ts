@@ -5,14 +5,17 @@ export const useCount = defineStore(
   () => {
     const count = useState("useCount/cont", () => 0);
 
+    const str = useState("count/str", () => "a");
+
     const increment = () => {
       count.value++;
+      str.value += str.value;
     };
     const decrement = () => {
       count.value--;
     };
 
-    return { count, increment, decrement };
+    return { count, str, increment, decrement };
   },
   {
     persist: true,
