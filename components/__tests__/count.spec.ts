@@ -1,8 +1,10 @@
-import Count from "@/components/count.vue";
 import { VueWrapper, shallowMount } from "@vue/test-utils";
-
 import { setActivePinia, createPinia } from "pinia";
+
+import Count from "@/components/count.vue";
 import { useCount } from "store/count";
+
+import NewCompo from "@/components/NewCompo.vue";
 
 let wrapper: VueWrapper;
 
@@ -10,7 +12,13 @@ describe("count Compoent Testing", () => {
   beforeEach(() => {
     // 피니아 설정
     setActivePinia(createPinia());
-    wrapper = shallowMount(Count);
+    wrapper = shallowMount(Count, {
+      global: {
+        components: {
+          NewCompo,
+        },
+      },
+    });
   });
 
   it("render Test", () => {

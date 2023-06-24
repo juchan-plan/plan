@@ -13,7 +13,7 @@ export default defineConfig({
       imports: ["vue", "vue-router", "pinia", "vitest"],
       // Auto import for module exports under directories
       // by default it only scan one level of modules under the directory
-      dirs: ["./compoents", "./compoents/**"],
+      dirs: ["./components", "./components/**"],
       vueTemplate: true,
       // 타입 파일 생성 false or "경로"
       dts: "vitest-setup/vitest.types.d.ts",
