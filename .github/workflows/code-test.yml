@@ -27,12 +27,11 @@ jobs:
       - name: List changed files ( 변경된 파일들 )
         id: changed_files
         run: |
-          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed-files.txt
-          echo files=$(cat changed-files.txt) >> $GITHUB_OUTPUT
+          (echo "FILES=";git diff --name-only --diff-filter=M dev | grep '\.spec.ts$') | tr '\n' ' '>> $GITHUB_OUTPUT
 
       - name: Run tests on changed files
         run: |
-          FILES=$(echo "${{ steps.changed_files.outputs.files }}" | grep '\.spec.ts$' | tr '\n' ' ')
-          FILE_SUFFIX="$(IFS=, ; echo "$FILES")"
-          echo "Running tests for: $FILES"
-          npm run test:verbose ${FILE_SUFFIX}
+          echo "Running tests for: {{$steps.changed_files.outputs.FILES}}"
+          npm run test:verbose ${steps.changed_files.outputs.FILES}
+
+# git diff --name-only --diff-filter=M dev | grep '\.spec.ts$' | tr '\n' ' '
