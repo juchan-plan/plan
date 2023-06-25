@@ -2,7 +2,6 @@ name: CI for nuxt.js project testing
 
 on:
   pull_request:
-    types: [opened]
     branches:
       - "*"
       - "*/*"
