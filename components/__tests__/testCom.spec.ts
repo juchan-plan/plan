@@ -6,5 +6,7 @@ describe("testCom", () => {
     const wp = shallowMount(TestCom);
 
     expect(wp.text()).toContain("TestCom");
+    expect(wp.text()).toContain("TestCom");
+    expect(wp.text()).toContain("TestCom");
   });
 });
