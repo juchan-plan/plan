@@ -27,14 +27,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: List changed files ( 변경된 파일들 )
+      - name: Get Cahange Files
         id: changed_files
-        run: |
-          (echo "FILES=";git diff --name-only --diff-filter=M dev | grep '\.spec.ts$') | tr '\n' ' '>> $GITHUB_OUTPUT
+        uses: tj-actions/changed-files@v37
+        with:
+          files: |
+            **.spec.ts
 
       - name: Run tests on changed files
         run: |
-          echo "Running tests for: {{$steps.changed_files.outputs.FILES}}"
-          npm run test:verbose ${steps.changed_files.outputs.FILES}
+          echo "Running tests for: {{$steps.changed_files.outputs.all_changed_files }}"
+          npm run test:verbose ${{steps.changed_files.outputs.all_changed_files }}
 
 # git diff --name-only --diff-filter=M dev | grep '\.spec.ts$' | tr '\n' ' '
