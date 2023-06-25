@@ -28,7 +28,7 @@ jobs:
         id: changed_files
         run: |
           git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > changed-files.txt
-          echo ::set-output name=files::$(cat changed-files.txt)
+          echo files=$(cat changed-files.txt) >> $GITHUB_OUTPUT
 
       - name: Run tests on changed files
         run: |
