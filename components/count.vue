@@ -11,7 +11,6 @@ const { increment, decrement } = useCount();
   <p>카운트 : {{ count }}</p>
   <button @click="increment">+</button>
   <button @click="decrement">-</button>
-  <NewCompo />
 </template>
 
 <style lang="scss" scoped>

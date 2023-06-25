@@ -5,4 +5,15 @@
 vi.stubGlobal("useState", (key: any, init: any) => ref(init()));
 vi.stubGlobal("useCookie", (key: any, init: any) => ref(init()));
 
+vi.stubGlobal("useFetch", (url: string, { body }: any) => {
+  const mapper = {
+    "/api/testData": `stub Data ${body}`,
+  } as { [key: string]: any };
+
+  return {
+    data: mapper[url],
+    refresh: () => {},
+  };
+});
+
 // useRuntimeConfig 등등
