@@ -3,7 +3,7 @@ import { VueWrapper, shallowMount } from "@vue/test-utils";
 import Trigger from "../Trigger.vue";
 
 let wrapper: VueWrapper<InstanceType<typeof Trigger>>;
-describe("Fetch Compoent", () => {
+describe("<Trigger />", () => {
   beforeEach(() => {
     wrapper = shallowMount(Trigger, {
       props: {
