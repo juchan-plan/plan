@@ -1,23 +1,21 @@
 name: CI for nuxt.js pr Command testing
 
 on:
-  issue_comment:
-    types: [created]
-  # push:
-  #   types:
-  #     - opened
-  #   branches:
-  #     - "*"
-  #     - "*/*"
-  #     - "**"
-  #     - "!master"
-  #     - "!dev"
-  #   paths:
-  #     - "**.spec.ts"
+  # issue_comment:
+  #   types: [created]
+  push:
+    branches:
+      - "*"
+      - "*/*"
+      - "**"
+      - "!master"
+      - "!dev"
+    paths:
+      - "**.spec.ts"
 
 jobs:
   test:
-    if: contains(github.event.comment.body, 'run tests')
+    # if: contains(github.event.comment.body, 'run tests')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
