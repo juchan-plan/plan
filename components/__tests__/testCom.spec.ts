@@ -1,7 +1,7 @@
 import TestCom from "@/components/testCom.vue";
 import { shallowMount } from "@vue/test-utils";
 
-describe("testCom", () => {
+describe("<testCom />", () => {
   it("render", () => {
     const wp = shallowMount(TestCom);
 
