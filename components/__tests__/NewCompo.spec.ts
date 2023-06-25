@@ -11,7 +11,5 @@ describe("<NewCompo />", () => {
 
   it("Rneder", () => {
     expect(wrapper.text()).toContain("newCompo");
-    expect(wrapper.text()).toContain("newCompo");
-    expect(wrapper.text()).toContain("newCompo");
   });
 });
