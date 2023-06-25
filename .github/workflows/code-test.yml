@@ -1,7 +1,8 @@
-name: CI for nuxt.js project test
+name: CI for nuxt.js project testing
 
 on:
-  push:
+  pull_request:
+    types: [opened]
     branches:
       - "*"
       - "*/*"
@@ -27,6 +28,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # https://github.com/marketplace/actions/changed-files
+      # 변경된 파일만 추출 하는 uses
       - name: Get Cahange Files
         id: changed_files
         uses: tj-actions/changed-files@v37
