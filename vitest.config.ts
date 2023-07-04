@@ -23,6 +23,9 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest-setup/nuxt-autoImports.ts"],
+    coverage: {
+      provider: "v8",
+    },
   },
   resolve: {
     alias: [
