@@ -40,21 +40,19 @@ describe("count Compoent Testing", () => {
     expect(wrapper.text()).toContain(`카운트 : ${countValue}`);
   });
 
-  it("increment button trigger", () => {
+  it("increment button trigger", async () => {
     const btn = wrapper.findAll("button")[0];
-    const count = useCount();
-    const spy = vi.spyOn(count, "increment");
 
     btn.trigger("click");
-    expect(spy).toBeCalled();
+    await nextTick();
+    expect(wrapper.text()).toContain(`카운트 : 1`);
   });
 
-  it("decrement button trigger", () => {
+  it("decrement button trigger", async () => {
     const btn = wrapper.findAll("button")[1];
-    const count = useCount();
-    const spy = vi.spyOn(count, "decrement");
 
     btn.trigger("click");
-    expect(spy).toBeCalled();
+    await nextTick();
+    expect(wrapper.text()).toContain(`카운트 : -1`);
   });
 });
