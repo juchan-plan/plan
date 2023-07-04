@@ -20,4 +20,22 @@ describe("useCount Testing", () => {
     expect(count.count).toBe(1);
     expect(count.str).toBe("aa");
   });
+
+  test("spy increment", () => {
+    const count = useCount();
+    const spy = vi.spyOn(count, "increment");
+
+    count.increment();
+
+    expect(spy).toBeCalled();
+  });
+
+  test("spy decrement", () => {
+    const count = useCount();
+    const spy = vi.spyOn(count, "decrement");
+
+    count.decrement();
+
+    expect(spy).toBeCalled();
+  });
 });
