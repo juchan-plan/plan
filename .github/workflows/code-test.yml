@@ -30,7 +30,8 @@ jobs:
       # - name: Install dependencies
       #   run: npm ci
       - name: Install dependencies
-        run: yarn install
+        # run: yarn install
+        run: yarn install --frozen-lockfile
 
       # https://github.com/marketplace/actions/changed-files
       # 변경된 파일만 추출 하는 uses
