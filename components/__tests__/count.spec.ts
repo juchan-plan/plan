@@ -54,5 +54,6 @@ describe("count Compoent Testing", () => {
     btn.trigger("click");
     await nextTick();
     expect(wrapper.text()).toContain(`카운트 : -1`);
+    expect(wrapper.text()).toContain(`카운트 : -1`);
   });
 });
