@@ -27,7 +27,8 @@ describe("Fetch Compoent", () => {
     await nextTick();
 
     expect(wrapper.text()).toContain("trigger");
-    // expect(spy).toBeCalledTimes(1);
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("btn Click Trigger change Text", async () => {
