@@ -27,6 +27,7 @@ describe("Fetch Compoent", () => {
     await nextTick();
 
     expect(wrapper.text()).toContain("trigger");
+
     // expect(spy).toBeCalledTimes(1);
   });
 
