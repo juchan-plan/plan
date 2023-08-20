@@ -45,6 +45,6 @@ jobs:
       - name: Run tests on changed files
         run: |
           echo "Running tests for: {{$steps.changed_files.outputs.all_changed_files }}"
-          npm run test:verbose ${{steps.changed_files.outputs.all_changed_files }}
+          yarn test:verbose ${{steps.changed_files.outputs.all_changed_files }}
 
 # git diff --name-only --diff-filter=M dev | grep '\.spec.ts$' | tr '\n' ' '
