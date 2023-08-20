@@ -35,5 +35,6 @@
     "pinia": "^2.0.35",
     "sass": "^1.62.1",
     "unplugin-auto-import": "^0.16.4"
-  }
+  },
+  "packageManager": "yarn@3.6.2"
 }
